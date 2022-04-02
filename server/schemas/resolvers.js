@@ -12,7 +12,7 @@ const resolvers = {
           .populate('friends');
 
         return userData;
-      }
+      };
 
       throw new AuthenticationError('Not logged in');
     },
