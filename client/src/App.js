@@ -6,8 +6,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+// import Header from './components/Header';
+// ;import Footer from './components/Footer';
 
 import Home from './pages/Home';
 
@@ -24,11 +24,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
+        {/* <Header /> */}
         <div className="container">
           <Home />
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </ApolloProvider>
   );
