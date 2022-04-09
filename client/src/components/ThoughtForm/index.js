@@ -4,8 +4,6 @@ import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 
-
-
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
@@ -42,15 +40,14 @@ const ThoughtForm = () => {
   };
 
   // submit form
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
-      // add thought to database
       await addThought({
-        variables: { thoughtText }
+        variables: { thoughtText },
       });
-  
+
       // clear form value
       setText('');
       setCharacterCount(0);
@@ -58,14 +55,15 @@ const ThoughtForm = () => {
       console.error(e);
     }
   };
-  
 
   return (
     <div>
-     <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-  Character Count: {characterCount}/280
-  {error && <span className="ml-2">Something went wrong...</span>}
-</p>
+      <p
+        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+      >
+        Character Count: {characterCount}/280
+        {error && <span className="ml-2">Something went wrong...</span>}
+      </p>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
